@@ -7,5 +7,5 @@ popd
 mkdir -p build
 pushd build
 cmake -DCMAKE_TOOLCHAIN_FILE=../cmake/iOS_toolchain.cmake -DCMAKE_BUILD_TYPE=Release -GXcode -DLLVM_NATIVE_TOOL_DIR="$(pwd)/../build_host/third_party/llvm-project/llvm/Debug/bin" ..
-#xcodebuild build -scheme AppClangParse -sdk iphoneos | xcpretty
+xcodebuild build -scheme AppClangParse -sdk iphoneos | xcpretty
 popd

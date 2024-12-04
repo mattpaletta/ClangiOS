@@ -1,0 +1,13 @@
+name: Build App
+
+on: [push]
+
+jobs:
+  Build:
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Create Build Environment
+      shell: bash
+      working-directory: ${{github.workspace}}
+      run: ./build.sh
