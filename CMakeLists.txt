@@ -44,7 +44,7 @@ target_include_directories(AppClangParse PUBLIC ${CMAKE_CURRENT_BINARY_DIR}/thir
 if (TARGET MLIRArithOpsIncGen)
 	add_dependencies(MLIRArithOpsIncGen MLIRArithOpsInterfacesIncGen)
 endif()
-if (TARGET mlir-linalg-ods-yaml-gen-host)
+if (TARGET mlir-linalg-ods-yaml-gen-host AND TARGET MLIR_LINALG_ODS_YAML_GEN_TARGET)
     add_dependencies(MLIR_LINALG_ODS_YAML_GEN_TARGET mlir-linalg-ods-yaml-gen-host)
 endif()
 if (TARGET MLIRLinalgNamedStructuredOpsYamlIncGen)
