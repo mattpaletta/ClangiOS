@@ -7,6 +7,8 @@ jobs:
     runs-on: macos-latest
     steps:
     - uses: actions/checkout@v2
+      with:
+        submodules: true
     - name: Create Build Environment
       shell: bash
       working-directory: ${{github.workspace}}
