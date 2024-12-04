@@ -5,6 +5,14 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
+find_program(PATCH patch REQUIRED)
+if (NOT TARGET clangAST)
+    # Patch returns 0 if already applied, and higher values if error
+    execute_process(COMMAND ${PATCH} -i ${CMAKE_CURRENT_SOURCE_DIR}/patches/clang.patch -p 1 --verbose
+                    COMMAND_ECHO STDOUT
+                    WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/third_party/llvm-project)
+endif()
+
 set(LLVM_ENABLE_PROJECTS "clang;mlir" CACHE STRING "")
 set(LLVM_INCLUDE_TESTS OFF)
 #set(LLVM_INCLUDE_GO_TESTS OFF)

@@ -1,0 +1,13 @@
+diff --git a/clang/cmake/modules/AddClang.cmake b/clang/cmake/modules/AddClang.cmake
+index 091aec98e..5a8deb36b 100644
+--- a/clang/cmake/modules/AddClang.cmake
++++ b/clang/cmake/modules/AddClang.cmake
+@@ -116,7 +116,7 @@ macro(add_clang_library name)
+     endif()
+   elseif(NOT ARG_SHARED AND NOT ARG_STATIC)
+     # Clang component libraries linked in to clang-cpp are declared without SHARED or STATIC
+-    target_compile_definitions("obj.${name}" PUBLIC CLANG_EXPORTS)
++    target_compile_definitions(${name} PUBLIC CLANG_EXPORTS)
+   endif()
+ 
+   set(libs ${name})
