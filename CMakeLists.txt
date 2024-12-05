@@ -8,7 +8,7 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 find_program(PATCH patch REQUIRED)
 if (NOT TARGET clangAST)
     # Patch returns 0 if already applied, and higher values if error
-    execute_process(COMMAND ${PATCH} -i ${CMAKE_CURRENT_SOURCE_DIR}/patches/clang.patch -p 1 --verbose
+    execute_process(COMMAND ${PATCH} -i ${CMAKE_CURRENT_SOURCE_DIR}/patches/clang.patch -p 1 --verbose --forward
                     COMMAND_ECHO STDOUT
                     WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/third_party/llvm-project)
 endif()
